@@ -66,4 +66,5 @@ int main() {
     CGAL::convert_nef_polyhedron_to_polygon_mesh<Nef_polyhedron_3, Surface_mesh>(result, result_surface, true);
 
     CGAL::write_off(std::cout, result_surface);
+    std::cout << "# is_simple: " << result.is_simple() << std::endl;
 }
