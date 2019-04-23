@@ -10,6 +10,7 @@
 typedef CGAL::Exact_predicates_exact_constructions_kernel Kernel;
 typedef CGAL::Surface_mesh<Kernel::Point_3> Surface_mesh;
 typedef CGAL::Nef_polyhedron_3<Kernel> Nef_polyhedron_3;
+typedef CGAL::Polyhedron_3<Kernel> Polyhedron_3;
 typedef Nef_polyhedron_3::Vector_3 Vector_3;
 typedef Kernel::Point_3 Point_3;
 typedef Nef_polyhedron_3::Aff_transformation_3 Aff_transformation_3;
@@ -62,8 +63,8 @@ int main() {
     other_cube.transform(translate * rotate);
     Nef_polyhedron_3 result = cube.difference(other_cube);
 
-    Surface_mesh result_surface;
-    CGAL::convert_nef_polyhedron_to_polygon_mesh<Nef_polyhedron_3, Surface_mesh>(result, result_surface, true);
+    Polyhedron_3 result_surface;
+    CGAL::convert_nef_polyhedron_to_polygon_mesh<Nef_polyhedron_3, Polyhedron_3>(result, result_surface, true);
 
     CGAL::write_off(std::cout, result_surface);
     std::cout << "# is_simple: " << result.is_simple() << std::endl;
