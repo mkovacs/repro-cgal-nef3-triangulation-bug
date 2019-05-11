@@ -1,3 +1,5 @@
 with import <nixpkgs> { };
 
-callPackage ./package.nix { }
+callPackage ./package.nix {
+  cgal = callPackage ./CGAL {};
+}
