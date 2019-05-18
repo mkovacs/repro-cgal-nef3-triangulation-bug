@@ -1,0 +1,24 @@
+diff --git a/include/CGAL/boost/graph/convert_nef_polyhedron_to_polygon_mesh.h b/include/CGAL/boost/graph/convert_nef_polyhedron_to_polygon_mesh.h
+index 9c0cec475..a322e1f33 100644
+--- a/include/CGAL/boost/graph/convert_nef_polyhedron_to_polygon_mesh.h
++++ b/include/CGAL/boost/graph/convert_nef_polyhedron_to_polygon_mesh.h
+@@ -151,8 +151,8 @@ struct Shell_polygons_visitor
+               polygons.back().push_back(vertex_indices[v[1]]);
+               polygons.back().push_back(vertex_indices[v[2]]);
+               polygons.push_back( std::vector<std::size_t>() );
+-              polygons.back().push_back(vertex_indices[v[2]]);
+               polygons.back().push_back(vertex_indices[v[0]]);
++              polygons.back().push_back(vertex_indices[v[2]]);
+               polygons.back().push_back(vertex_indices[v[3]]);
+             }
+             else
+@@ -162,8 +162,8 @@ struct Shell_polygons_visitor
+               polygons.back().push_back(vertex_indices[v[0]]);
+               polygons.back().push_back(vertex_indices[v[2]]);
+               polygons.push_back( std::vector<std::size_t>() );
+-              polygons.back().push_back(vertex_indices[v[0]]);
+               polygons.back().push_back(vertex_indices[v[2]]);
++              polygons.back().push_back(vertex_indices[v[0]]);
+               polygons.back().push_back(vertex_indices[v[3]]);
+             }
+           }

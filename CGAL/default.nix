@@ -1,15 +1,17 @@
 { stdenv, fetchFromGitHub, cmake, boost, gmp, mpfr }:
 
 stdenv.mkDerivation rec {
-  version = "4.14";
+  version = "4.13";
   name = "cgal-" + version;
 
   src = fetchFromGitHub {
     owner = "CGAL";
     repo = "releases";
     rev = "CGAL-${version}";
-    sha256 = "0p0s1dl5a261zwy0hxa7ylkypk45rwc6n84lx507dwdhfz4ihv12";
+    sha256 = "1gzfz0fz7q5qyhzwfl3n1f5jrqa1ijq9kjjms7hb0ywpagipq6ax";
   };
+
+  patches = [ ./fix-triangle-order.patch ];
 
   # note: optional component libCGAL_ImageIO would need zlib and opengl;
   #   there are also libCGAL_Qt{3,4} omitted ATM
